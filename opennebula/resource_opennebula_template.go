@@ -149,7 +149,7 @@ func changeTemplateGroup(d *schema.ResourceData, meta interface{}) error {
 			return err
 		}
 	}
-
+	fmt.println("----",gid)
 	err = tc.Chown(-1, gid)
 	if err != nil {
 		return err
@@ -194,6 +194,8 @@ func resourceOpennebulaTemplateCreate(d *schema.ResourceData, meta interface{}) 
 		}
 	}
 
+	
+	fmt.println(d.Get("group"), d.Get("gid")
 	if d.Get("group") != "" || d.Get("gid") != "" {
 		err = changeTemplateGroup(d, meta)
 		if err != nil {
