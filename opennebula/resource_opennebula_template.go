@@ -195,7 +195,7 @@ func resourceOpennebulaTemplateCreate(d *schema.ResourceData, meta interface{}) 
 	}
 
 	
-	log.Printf(d.Get("group"), d.Get("gid"))
+	log.Printf(d.Get("group").(string), d.Get("gid").(string))
 	if d.Get("group") != "" || d.Get("gid") != "" {
 		err = changeTemplateGroup(d, meta)
 		if err != nil {
